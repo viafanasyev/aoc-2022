@@ -47,9 +47,9 @@ func mapTo[T, U any](items []T, f func(T) U) []U {
 }
 
 func main() {
-    if len(os.Args) < 1 {
-        fmt.Println("Expected input file")
-        os.Exit(-1)
+    if len(os.Args) < 2 {
+        fmt.Fprintf(os.Stderr, "Expected input file\n")
+        os.Exit(1)
     }
 
     inputFilePath := os.Args[1]
@@ -57,8 +57,8 @@ func main() {
 
     lines, err := readLines(inputFilePath)
     if err != nil {
-        fmt.Printf("Error reading file: %s\n", err)
-        os.Exit(-1)
+        fmt.Fprintf(os.Stderr, "Error reading file: %s\n", err)
+        os.Exit(1)
     }
 
     caloriesChunks := splitBy(lines, func(line string) bool {
