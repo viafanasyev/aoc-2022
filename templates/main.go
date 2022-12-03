@@ -45,6 +45,14 @@ func mapTo[T, U any](items []T, f func(T) U) []U {
     return result
 }
 
+func sumBy[T any](items []T, toInt func(T) int) int {
+    sum := 0
+    for _, item := range items {
+        sum += toInt(item)
+    }
+    return sum
+}
+
 func main() {
     if len(os.Args) < 2 {
         fmt.Fprintf(os.Stderr, "Expected input file\n")
