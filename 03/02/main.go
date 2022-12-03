@@ -79,7 +79,7 @@ func sumBy[T any](items []T, toInt func(T) int) int {
 
 func groupBy3[T any](items []T) [][]T {
     if len(items) % 3 != 0 {
-        panic(fmt.Sprintf("Expecedd length to be divisible by 3, but got %d", len(items)))
+        panic(fmt.Sprintf("Expected length to be divisible by 3, but got %d", len(items)))
     }
 
     groups := make([][]T, len(items) / 3)
