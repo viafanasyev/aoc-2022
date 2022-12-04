@@ -6,6 +6,11 @@ import (
     "os"
 )
 
+type pair[T, U any] struct {
+    first T
+    second U
+}
+
 func readLines(filePath string) ([]string, error) {
     file, err := os.Open(filePath)
     if err != nil {
@@ -51,6 +56,16 @@ func sumBy[T any](items []T, toInt func(T) int) int {
         sum += toInt(item)
     }
     return sum
+}
+
+func count[T any](items []T, condition func(T) bool) int {
+    counter := 0
+    for _, item := range items {
+        if condition(item) {
+            counter++
+        }
+    }
+    return counter
 }
 
 func main() {
