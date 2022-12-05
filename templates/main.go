@@ -39,6 +39,9 @@ func splitBy[T any](items []T, condition func(T) bool) [][]T {
             currentChunk = append(currentChunk, item)
         }
     }
+    if len(currentChunk) > 0 {
+        result = append(result, currentChunk)
+    }
     return result
 }
 
