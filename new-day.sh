@@ -11,13 +11,7 @@ mkdir $DAY
 cd $DAY
 
 mkdir 01
-cd 01
-go mod init aoc-2022/$DAY/01
-cd -
 cp -r ../templates/. 01
 
 mkdir 02
-cd 02
-go mod init aoc-2022/$DAY/02
-cd -
 cp -r ../templates/. 02
