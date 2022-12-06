@@ -10,6 +10,9 @@ DAY=$1
 mkdir $DAY
 cd $DAY
 
+touch sample.txt
+touch input.txt
+
 mkdir 01
 cp -r ../templates/. 01
 
