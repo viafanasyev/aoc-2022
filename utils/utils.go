@@ -69,3 +69,21 @@ func Count[T any](items []T, condition func(T) bool) int {
     }
     return counter
 }
+
+func All[T any](items []T, condition func(T) bool) bool {
+    for _, item := range items {
+        if !condition(item) {
+            return false
+        }
+    }
+    return true
+}
+
+func None[T any](items []T, condition func(T) bool) bool {
+    for _, item := range items {
+        if condition(item) {
+            return false
+        }
+    }
+    return true
+}
