@@ -6,17 +6,17 @@ import (
     "os"
 )
 
-const MAX_TREE_HEIGHT = 9
+const maxTreeHeight = 9
 
 func updateScenicScore(treeGrid [][]int, scenicScoreGrid[][]int, x, y, dx, dy, maxX, maxY int) {
-    currentlyVisibleTrees := make([]int, MAX_TREE_HEIGHT + 1)
+    currentlyVisibleTrees := make([]int, maxTreeHeight + 1)
     for 0 <= x && x < maxX && 0 <= y && y < maxY {
         currentTree := treeGrid[y][x]
         scenicScoreGrid[y][x] *= currentlyVisibleTrees[currentTree]
         for i := 0; i <= currentTree; i++ {
             currentlyVisibleTrees[i] = 1
         }
-        for i := currentTree + 1; i < MAX_TREE_HEIGHT; i++ {
+        for i := currentTree + 1; i < maxTreeHeight; i++ {
             currentlyVisibleTrees[i]++
         }
         x += dx
