@@ -52,6 +52,14 @@ func Map[T, U any](items []T, f func(T) U) []U {
     return result
 }
 
+func Sum(items []int) int {
+    sum := 0
+    for _, item := range items {
+        sum += item
+    }
+    return sum
+}
+
 func SumBy[T any](items []T, toInt func(T) int) int {
     sum := 0
     for _, item := range items {
@@ -64,6 +72,16 @@ func Count[T any](items []T, condition func(T) bool) int {
     counter := 0
     for _, item := range items {
         if condition(item) {
+            counter++
+        }
+    }
+    return counter
+}
+
+func CountTrue(items []bool) int {
+    counter := 0
+    for _, item := range items {
+        if item {
             counter++
         }
     }
@@ -86,4 +104,25 @@ func None[T any](items []T, condition func(T) bool) bool {
         }
     }
     return true
+}
+
+func Max(items []int) int {
+    max := items[0]
+    for _, item := range items[1:] {
+        if item > max {
+            max = item
+        }
+    }
+    return max
+}
+
+func MaxBy[T any](items []T, toInt func(T) int) int {
+    max := toInt(items[0])
+    for _, item := range items[1:] {
+        intItem := toInt(item)
+        if intItem > max {
+            max = intItem
+        }
+    }
+    return max
 }
