@@ -8,11 +8,6 @@ type Stack[T any] struct {
     top *Node[T]
 }
 
-type Node[T any] struct {
-    value T
-    next *Node[T]
-}
-
 func NewStack[T any]() *Stack[T] {
     return &Stack[T] { nil }
 }
