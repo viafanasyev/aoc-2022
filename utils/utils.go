@@ -126,3 +126,24 @@ func MaxBy[T any](items []T, toInt func(T) int) int {
     }
     return max
 }
+
+func Min(items []int) int {
+    min := items[0]
+    for _, item := range items[1:] {
+        if item < min {
+            min = item
+        }
+    }
+    return min
+}
+
+func MinBy[T any](items []T, toInt func(T) int) int {
+    min := toInt(items[0])
+    for _, item := range items[1:] {
+        intItem := toInt(item)
+        if intItem < min {
+            min = intItem
+        }
+    }
+    return min
+}
