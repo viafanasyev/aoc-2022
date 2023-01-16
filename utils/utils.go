@@ -52,6 +52,25 @@ func Map[T, U any](items []T, f func(T) U) []U {
     return result
 }
 
+func Filter[T any](items []T, f func(T) bool) []T {
+    result := make([]T, 0)
+    for _, item := range items {
+        if f(item) {
+            result = append(result, item)
+        }
+    }
+    return result
+}
+
+func IndexOf[T any](items []T, f func(T) bool) int {
+    for i, item := range items {
+        if f(item) {
+            return i
+        }
+    }
+    return -1
+}
+
 func Sum(items []int) int {
     sum := 0
     for _, item := range items {
